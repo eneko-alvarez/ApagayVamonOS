@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Apaga y VámonOS</title>
+  <meta name="description" content="Apaga y VámonOS: documentación y prácticas de la asignatura de Seguridad de la Información (Universidad de Deusto)." />
+
+  <!-- Tipografía similar (limpia, tipo producto). Si prefieres otra, dime cuál. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+
+<body>
+  <!-- Fondo decorativo suave -->
+  <div class="bg" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Ir al inicio">
+        <img src="img/logo.png" alt="Apaga y VámonOS" class="logo-img">
+        <span class="logo-text">Apaga y VámonOS</span>
+      </a>
+
+      <nav class="nav" aria-label="Navegación">
+        <a href="index.html">Inicio</a>
+        <a href="index.html#introduccion">Introducción</a>
+        <a href="index.html#etiquetas">Etiquetas</a>
+        <details class="nav-dropdown">
+          <summary>Prácticas</summary>
+          <div class="dropdown-panel">
+            <a href="practica1.html">Práctica 1</a>
+            <a href="practica2.html">Práctica 2</a>
+            <!-- agrega más prácticas aquí -->
+          </div>
+        </details>
+        <a href="index.html#miembros">Miembros</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="#miembros">Equipo</a>
+        <a class="btn btn-solid" href="practica1.html">Práctica 1</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="kicker">
+            <span class="pill">Ciberseguridad</span>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="subpill">Blue/Red • Formación</span>
+          </div>
+
+          <h1 class="h1">Apaga y VámonOS</h1> <!-- sustituye por el nombre real del grupo -->
+
+          <p class="lead">
+            Somos Maialen y Eneko, estudiantes de 4º de CDIA (Ciencia de Datos con IA) en la Universidad de Deusto, Bilbao.
+            Esta web sirve para subir los informes de la asignatura de Seguridad de la Información (ciberseguridad), ya que
+            en esta asignatura no supporteamos los reports y documentaciones.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-solid" href="practica1.html">Ir a práctica 1</a>
+            <a class="btn btn-ghost" href="#introduccion">Leer introducción</a>
+          </div>
+
+          <div class="stats" role="list" aria-label="Resumen rápido">
+            <div class="stat" role="listitem">
+              <p class="stat-k">Enfoque</p>
+              <p class="stat-v">Práctico</p>
+            </div>
+            <div class="stat" role="listitem">
+              <p class="stat-k">Ritmo</p>
+              <p class="stat-v">Por prácticas</p>
+            </div>
+            <div class="stat" role="listitem">
+              <p class="stat-k">Formato</p>
+              <p class="stat-v">Writeups</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card card-summary" aria-label="Resumen de apartados">
+          <div class="card-head">
+            <h2 class="h3">Resumen de apartados</h2>
+            <span class="chip">Índice</span>
+          </div>
+
+          <ul class="list">
+            <li><span class="bullet"></span><strong>Quiénes somos y qué hacemos</strong></li>
+            <li><span class="bullet"></span><strong>Conceptos clave</strong></li>
+            <li><span class="bullet"></span><strong>Espacios para ejercicios</strong></li>
+            <li><span class="bullet"></span><strong>Equipo</strong></li>
+            
+          </ul>
+
+          <div class="card-foot">
+            <a class="btn btn-small btn-ghost" href="#practica">Ir a prácticas</a>
+            <a class="btn btn-small btn-ghost" href="#miembros">Ver miembros</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- INTRODUCCIÓN -->
+    <section id="introduccion" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Introducción</p>
+          <h2 class="h2">Quiénes somos y qué hacemos</h2>
+          <p class="muted">
+            Grupo formado por dos estudiantes de CDIA orientado a documentar de forma práctica los ejercicios de Seguridad de la Información, aplicando un enfoque realista de análisis, ataque y defensa de sistemas. 
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3 class="h3">Quiénes somos</h3>
+            <p class="muted">
+              Somos <strong>Maialen Blanco</strong> y <strong>Eneko Álvarez</strong>, dos participantes del curso que trabajamos juntos
+              en este proyecto para practicar y documentar ejercicios de ciberseguridad.
+            </p>
+            <ul class="ticks">
+              <li>Entorno controlado (laboratorio)</li>
+              <li>Metodología y trazabilidad</li>
+              <li>Mejora continua y retro semanal</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3 class="h3">Qué hacemos</h3>
+            <p class="muted">
+              Realizamos ejercicios de ciberseguridad con un enfoque práctico, analizando escenarios reales de ataque y defensa en sistemas y entornos web. Estudiamos ataques y protegemos redes ficticias a amenazas simuladas, identificando vulnerabilidades y proponiendo medidas de mitigación.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ETIQUETAS -->
+    <section id="etiquetas" class="section section-soft">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Etiquetas</p>
+          <h2 class="h2">Conceptos clave</h2>
+        </div>
+
+        <div class="tags" role="list" aria-label="Etiquetas temáticas">
+          <span class="tag" role="listitem">OSINT</span>
+          <span class="tag" role="listitem">Zero Trust</span>
+          <span class="tag" role="listitem">Ingeniería social</span>
+          <span class="tag" role="listitem">Confidencialidad</span>
+          <span class="tag" role="listitem">Integridad</span>
+          <span class="tag" role="listitem">Análisis de riesgos</span>
+          <span class="tag" role="listitem">Security by Design</span>
+          <span class="tag" role="listitem">IA aplicada a seguridad</span>
+          <span class="tag" role="listitem">Monitorización</span>
+          <span class="tag" role="listitem">Servidores</span>
+          <span class="tag" role="listitem">Redes</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PRÁCTICA -->
+    <section id="practica" class="section section-soft">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Práctica</p>
+          <h2 class="h2">Espacios para ejercicios</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card card-hover">
+            <div class="card-row">
+              <h3 class="h3">Práctica 01 — USB Booteable</h3>
+              <span class="chip chip-blue">Básico</span>
+            </div>
+            <p class="muted">Arranque de Linux desde USB para analizar qué información de Windows puede verse o modificarse cuando se dispone de acceso físico al equipo.</p>
+            <ul class="mini">
+              <li>Boot Linux Live desde USB</li>
+              <li>Análisis de diferentes escenarios</li>
+              <li>Acceso y modificación de archivos</li>
+            </ul>
+            <a class="link" href="practica1.html">Abrir plantilla →</a>
+          </article>
+
+          <article class="card card-hover">
+            <div class="card-row">
+              <h3 class="h3">Práctica 02 — Pendiente de realización...</h3>
+              <span class="chip chip-purple">Medio</span>
+            </div>
+            <p class="muted">...</p>
+            <ul class="mini">
+              
+            </ul>
+            <a class="link" href="practica2.html">Abrir plantilla →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MIEMBROS -->
+    <section id="miembros" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Miembros</p>
+          <h2 class="h2">Equipo</h2>
+        </div>
+
+        <div class="grid-2">
+          <article class="card member">
+            <div class="avatar" data-initials="">
+              <img src="img/maialen.png" alt="Foto de la persona" />
+            </div>
+            <div class="member-body">
+              <h3 class="h3">Maialen Blanco</h3>
+              <p class="muted"><strong>Rol:</strong> Estudiante (tratando de sobrevivir)</p>
+              <p class="muted">Especialidad: Literalmente ninguna</p>
+              <div class="links">
+                <a class="link" href="#">LinkedIn</a>
+                <a class="link" href="#">GitHub</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card member">
+            <div class="avatar" data-initials="">
+              <img src="img/eneko.png" alt="Foto de la persona" />
+            </div>
+            <div class="member-body">
+              <h3 class="h3">Eneko Álvarez</h3>
+              <p class="muted"><strong>Rol:</strong> Estudiante (tratando de no estudiar)</p>
+              <p class="muted">Especialidad: Asistir a clase</p>
+              <div class="links">
+                <a class="link" href="#">LinkedIn</a>
+                <a class="link" href="#">GitHub</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <footer class="footer">
+          <p class="muted">© Apaga y VámonOS — Documentación y práctica con criterio.</p>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <!-- scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>

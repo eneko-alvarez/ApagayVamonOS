@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apaga y VámonOS/Práctica 1</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+
+  <!-- Fondo decorativo -->
+  <div class="bg">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container">
+      <div class="header-inner">
+
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="Apaga y VámonOS" class="logo-img">
+          <span class="logo-text">Apaga y VámonOS · Prácticas</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="practica1.html" class="is-active">Práctica 1</a>
+          <details>
+            <summary>Más prácticas</summary>
+            <div class="dropdown-panel">
+              <a href="practica2.html">Práctica 2</a>
+              <a href="practica3.html">Práctica 3</a>
+              <a href="practica4.html">Práctica 4</a>
+            </div>
+          </details>
+        </nav>
+
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-ghost btn-small">Volver</a>
+          <a href="#entrega" class="btn btn-solid btn-small">Ver entrega</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Columna izquierda -->
+        <div class="reveal">
+          <div class="kicker">
+            <span class="pill">Práctica 1</span>
+            <span class="dot"></span>
+            <span class="subpill">Seguridad de la Información</span>
+          </div>
+
+          <h1 class="h1">USB booteable y<br>acceso físico al sistema</h1>
+
+          <p class="lead">
+            Práctica centrada en arrancar un sistema operativo Linux desde USB para analizar
+            qué información puede consultarse o modificarse en equipos con Windows cuando
+            existe acceso físico al dispositivo.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#enunciado" class="btn btn-solid">Ver enunciado</a>
+            <a href="#valoracion" class="btn btn-ghost">Valoración</a>
+          </div>
+
+          <!-- Stats rápidos -->
+          <div class="stats">
+            <div class="stat">
+              <p class="stat-k">Dificultad</p>
+              <p class="stat-v">Baja</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Tecnologías</p>
+              <p class="stat-v">Linux Live · USB boot · BIOS</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Estado</p>
+              <p class="stat-v">Entregada</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: resumen rápido -->
+        <div class="reveal">
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">Resumen</p>
+              <span class="chip chip-green">Completada</span>
+            </div>
+
+            <ul class="list">
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Tema:</strong> “Si tengo acceso físico, tengo medio sistema ganado”.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Objetivo:</strong> Probar arranque por USB y analizar acceso a discos Windows.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Resultado:</strong> En un equipo se accedió y modificó información; en otro el cifrado lo impidió.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Protección:</strong> Cifrado de disco como medida clave.</span>
+              </li>
+            </ul>
+
+            <div class="card-foot">
+              <span class="chip chip-blue">Linux</span>
+              <span class="chip chip-purple">Windows</span>
+              <span class="chip chip-green">Seguridad</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Enunciado -->
+  <section class="section section-soft reveal" id="enunciado">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Enunciado</p>
+        <h2 class="h2">Descripción de la práctica</h2>
+        <p class="muted">
+          A continuación se detalla el enunciado oficial y los apartados a desarrollar.
+        </p>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte 1</p>
+            <span class="chip chip-blue">USB</span>
+          </div>
+          <h3 class="h3">Crear un USB booteable con Linux</h3>
+          <p class="muted">
+            Preparar un USB con un sistema operativo Linux e investigar herramientas para
+            crear el USB booteable. Verificar que arranca correctamente (relacionado con la parte 2).
+          </p>
+          <ul class="ticks">
+            <li>Analizar qué distros Linux pueden ser ideales</li>
+            <li>Investigar herramientas para crear un USB booteable</li>
+            <li>Probar que el USB funciona</li>
+            <li>Documentar brevemente las decisiones tomadas</li>
+          </ul>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte 2–4</p>
+            <span class="chip chip-purple">Análisis</span>
+          </div>
+          <h3 class="h3">Ejecutar el USB y responder preguntas</h3>
+          <p class="muted">
+            Arrancar los ordenadores del grupo desde el USB, analizar los discos e información
+            disponible (Windows) y responder a cuestiones extra y valoración final.
+          </p>
+          <ul class="ticks">
+            <li>Arrancar desde USB (posible ajuste en BIOS/orden de arranque)</li>
+            <li>Analizar discos e información del equipo</li>
+            <li>Comprobar si se puede ver/modificar información de Windows</li>
+            <li>Responder preguntas extra y valoración</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Respuestas / Entrega -->
+  <section class="section reveal" id="entrega">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Entrega</p>
+        <h2 class="h2">Enunciado y respuestas</h2>
+        <p class="muted">Respuestas detalladas a los apartados realizados en el grupo.</p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado 1</p>
+          </div>
+          <h3 class="h3">USB booteable con Linux</h3>
+          <p class="muted">
+            En la entrega presentada no se documentan las decisiones del apartado 1
+            (selección de distro/herramienta y justificación). La verificación práctica del
+            arranque se realizó en el apartado 2 al ejecutar el USB en los equipos del grupo.
+          </p>
+          <div class="card-foot">
+            <span class="chip">USB</span>
+            <span class="chip chip-blue">Linux</span>
+          </div>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado 2</p>
+          </div>
+          <h3 class="h3">Ejecución y análisis por ordenador</h3>
+          <p class="muted">
+            <strong>Ordenador Naroa:</strong> se accedió a la partición de Ubuntu, pero al intentar acceder a Windows aparecía un mensaje de error.<br><br>
+            <strong>Ordenador Maialen:</strong> el equipo estaba encriptado; no se pudo entrar al SSD porque pedía contraseña/verificación.<br><br>
+            <strong>Ordenador Eneko:</strong> se accedió a información sensible del usuario en ambas particiones (usuario, carpetas, descargas, etc.).
+          </p>
+          <div class="card-foot">
+            <span class="chip">BIOS</span>
+            <span class="chip">Discos</span>
+            <span class="chip chip-purple">Windows</span>
+          </div>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado 3</p>
+          </div>
+          <h3 class="h3">Visibilidad/modificación + preguntas extra</h3>
+          <p class="muted">
+            <strong>2.c)</strong> Sí: en el ordenador de Eneko se pudo ver información sensible del usuario desde el sistema arrancado por USB.<br><br>
+            <strong>2.d)</strong> Sí: se accedió a un Excel del ordenador y se pudo modificar.<br><br>
+            <strong>2.e)</strong> Caso exitoso (ver y modificar): ordenador Eneko. Caso no exitoso: ordenador Maialen (cifrado). Diferencias: protección por cifrado/solicitud de verificación frente a discos accesibles.<br><br>
+            <strong>3.a)</strong> Ruta investigada: <code>C:\Windows\System32\Config\SAM</code>.<br>
+            <strong>3.b)</strong> En Windows antiguos: <code>autoexec.bat</code>. En Windows modernos el inicio automático se gestiona con registro, carpeta Start up o servicios del sistema.
+          </p>
+          <div class="card-foot">
+            <span class="chip chip-purple">Permisos</span>
+            <span class="chip">SAM</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Callout con enlace al repo -->
+      <div class="callout">
+        <p>👥 <strong>Integrantes:</strong> Eneko Álvarez, Anne Beascoechea, Maialen Blanco, Natalia González, Naroa Manterola</p>
+        <div class="callout-actions">
+          <a href="#" class="btn btn-solid btn-small">Ver en GitHub</a>
+          <a href="#" class="btn btn-ghost btn-small">Descargar ZIP</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sección: Checklist de criterios -->
+  <section class="section section-soft reveal">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Criterios</p>
+        <h2 class="h2">Checklist de evaluación</h2>
+        <p class="muted">Puntos clave que se comprueban en esta práctica.</p>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <ul class="checklist">
+            <li class="check">
+              <input type="checkbox" checked />
+              <span><strong>Arranque desde USB:</strong> Se ejecuta Linux sin instalar en los equipos del grupo.</span>
+            </li>
+            <li class="check">
+              <input type="checkbox" checked />
+              <span><strong>Análisis de discos:</strong> Se revisan particiones y datos accesibles del sistema.</span>
+            </li>
+            <li class="check">
+              <input type="checkbox" checked />
+              <span><strong>Acceso a datos:</strong> Se comprueba si es posible ver información sensible de Windows.</span>
+            </li>
+            <li class="check">
+              <input type="checkbox" checked />
+              <span><strong>Modificación:</strong> Se verifica si es posible modificar archivos (caso Excel).</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p class="eyebrow">Conceptos y tecnologías</p>
+          <div class="tags" style="margin-top:12px;">
+            <span class="tag">Linux Live USB</span>
+            <span class="tag">BIOS / Boot order</span>
+            <span class="tag">Particiones</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Cifrado de disco</span>
+            <span class="tag">SAM</span>
+          </div>
+
+          <div class="note">
+            <p class="muted" style="font-size:13px; margin:0;">
+              💡 Idea principal: con acceso físico, un equipo sin cifrado puede exponer información.
+              El cifrado del disco (por ejemplo con BitLocker u opciones equivalentes) reduce mucho el riesgo.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección: Valoración -->
+  <section class="section reveal" id="valoracion">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Reflexión</p>
+        <h2 class="h2">Valoración personal</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">⭐ Utilidad real</h3>
+            <span class="chip chip-green">Alta</span>
+          </div>
+          <p class="muted">
+            Con lo aprendido se puede <strong>robar datos</strong> o <strong>acceder al ordenador</strong> para recuperar la contraseña,
+            aprovechando el arranque desde USB y el acceso físico al equipo.
+            Para protegerse, una medida efectiva es <strong>cifrar el disco</strong> o comprar un Mac (Apple).
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">🎯 Dificultad</h3>
+            <span class="chip chip-blue">Baja</span>
+          </div>
+          <p class="muted">
+            No ha sido complicado, pero es importante seguir los pasos con cuidado,
+            especialmente al arrancar desde USB y al revisar/modificar archivos del sistema.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section">
+    <div class="container">
+      <div class="footer">
+        <p class="muted" style="font-size:13px; margin:0;">
+          Práctica 1 · Desarrollo Web · 2025–2026 &nbsp;·&nbsp;
+          <a href="index.html" class="link">Volver al inicio</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script: scroll reveal + header scrolled + nav activo -->
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    // Header scrolled
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>

