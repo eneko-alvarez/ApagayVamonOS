@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apaga y VámonOS/Práctica 4</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+<body>
+
+  <div class="bg">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="header" id="top">
+    <div class="container">
+      <div class="header-inner">
+
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="Apaga y VámonOS" class="logo-img">
+          <span class="logo-text">Apaga y VámonOS · Prácticas</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="practica4.html" class="is-active">Práctica 4</a>
+          <details>
+            <summary>Más prácticas</summary>
+            <div class="dropdown-panel">
+              <a href="practica1.html">Práctica 1</a>
+              <a href="practica2.html">Práctica 2</a>
+              <a href="practica3.html">Práctica 3</a>
+              <a href="practica4.html">Práctica 4</a>
+            </div>
+          </details>
+        </nav>
+
+        <div class="header-actions">
+          <a href="index.html#practica" class="btn btn-ghost btn-small">Volver</a>
+          <a href="#entrega" class="btn btn-solid btn-small">Ver entrega</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div class="reveal">
+          <div class="kicker">
+            <span class="pill">Práctica 4</span>
+            <span class="dot"></span>
+            <span class="subpill">Criptografía y fuerza bruta</span>
+          </div>
+
+          <h1 class="h1">Crackeo de hash<br>con SHA-256</h1>
+
+          <p class="lead">
+            Práctica orientada a romper un hash SHA-256 mediante fuerza bruta.
+            En esta página se documenta la solución implementada usando únicamente
+            la primera parte del script en Python, generando candidatos de 7 caracteres
+            que contienen la subcadena <code>cr7</code> y comparando su hash con el objetivo.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#enunciado" class="btn btn-solid">Ver enunciado</a>
+            <a href="#codigo" class="btn btn-ghost">Ver código</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <p class="stat-k">Dificultad</p>
+              <p class="stat-v">Media</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Tecnologías</p>
+              <p class="stat-v">Python · SHA-256 · Fuerza bruta</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Estado</p>
+              <p class="stat-v">Documentada</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">Resumen</p>
+              <span class="chip chip-green">Completada</span>
+            </div>
+
+            <ul class="list">
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Objetivo:</strong> encontrar la contraseña original a partir de un hash SHA-256.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Estrategia:</strong> generación de combinaciones por fuerza bruta.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Restricción usada:</strong> la contraseña contiene la subcadena <code>cr7</code>.</span>
+              </li>
+              <li>
+                <span class="bullet"></span>
+                <span><strong>Implementación:</strong> solo se utiliza la primera parte del archivo <code>.py</code>.</span>
+              </li>
+            </ul>
+
+            <div class="card-foot">
+              <span class="chip chip-blue">hashlib</span>
+              <span class="chip chip-purple">itertools</span>
+              <span class="chip chip-green">string</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft reveal" id="enunciado">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Enunciado</p>
+        <h2 class="h2">Descripción de la práctica</h2>
+        <p class="muted">
+          La práctica consiste en descubrir una contraseña original a partir de un hash SHA-256,
+          generando candidatos y comparando sus hashes hasta encontrar una coincidencia.
+        </p>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte principal</p>
+            <span class="chip chip-blue">Hash</span>
+          </div>
+          <h3 class="h3">Búsqueda por fuerza bruta</h3>
+          <p class="muted">
+            El programa genera combinaciones de letras minúsculas, inserta la subcadena
+            <code>cr7</code> en distintas posiciones posibles dentro de una cadena de 7 caracteres
+            y calcula el SHA-256 de cada candidato.
+          </p>
+          <ul class="ticks">
+            <li>Lectura del hash objetivo desde el script</li>
+            <li>Generación sistemática de candidatos</li>
+            <li>Cálculo de hash con SHA-256</li>
+            <li>Comparación hasta encontrar coincidencia</li>
+          </ul>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Lógica aplicada</p>
+            <span class="chip chip-purple">Python</span>
+          </div>
+          <h3 class="h3">Uso exclusivo de la primera parte del script</h3>
+          <p class="muted">
+            Para esta página se ha tomado únicamente el primer bloque del archivo Python,
+            ignorando la segunda alternativa del script. De esta forma, la solución mostrada
+            sigue una única estrategia de búsqueda bien delimitada.
+          </p>
+          <ul class="ticks">
+            <li>Se usan solo letras minúsculas como relleno</li>
+            <li>La subcadena fija es <code>cr7</code></li>
+            <li>La longitud total considerada es de 7 caracteres</li>
+            <li>La ejecución se detiene al encontrar la contraseña</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section reveal" id="entrega">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Entrega</p>
+        <h2 class="h2">Explicación de la solución</h2>
+        <p class="muted">Resumen de cómo funciona el script utilizado en esta práctica.</p>
+      </div>
+
+      <div class="grid-3">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Paso 1</p>
+          </div>
+          <h3 class="h3">Definir el hash objetivo</h3>
+          <p class="muted">
+            Se parte de un hash SHA-256 concreto almacenado en una variable.
+            Ese valor será la referencia contra la que se comparan todos los hashes
+            generados durante la búsqueda.
+          </p>
+          <div class="card-foot">
+            <span class="chip">SHA-256</span>
+            <span class="chip chip-blue">Objetivo</span>
+          </div>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Paso 2</p>
+          </div>
+          <h3 class="h3">Generar candidatos válidos</h3>
+          <p class="muted">
+            Se generan todas las combinaciones posibles de letras minúsculas necesarias
+            para completar la contraseña. Después, la subcadena <code>cr7</code> se inserta
+            en todas las posiciones posibles dentro de una cadena de longitud 7.
+          </p>
+          <div class="card-foot">
+            <span class="chip">itertools</span>
+            <span class="chip">Brute force</span>
+          </div>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Paso 3</p>
+          </div>
+          <h3 class="h3">Comparar hashes y detenerse</h3>
+          <p class="muted">
+            Cada candidato se transforma en hash SHA-256. Si el resultado coincide con el
+            hash objetivo, el programa muestra la contraseña encontrada y finaliza la búsqueda.
+            Si no aparece ninguna coincidencia, se informa al terminar todas las pruebas.
+          </p>
+          <div class="card-foot">
+            <span class="chip chip-purple">Comparación</span>
+            <span class="chip chip-green">Resultado</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="callout">
+        <p>🔐 <strong>Idea clave:</strong> la fuerza bruta se vuelve más eficiente cuando se conoce una parte de la contraseña, como en este caso con la subcadena <code>cr7</code>.</p>
+        <div class="callout-actions">
+          <a href="#codigo" class="btn btn-solid btn-small">Ver código</a>
+          <a href="index.html#practica" class="btn btn-ghost btn-small">Volver al índice</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section section-soft reveal" id="codigo">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Código</p>
+        <h2 class="h2">Script utilizado</h2>
+        <p class="muted">Bloque usado de la práctica, mostrando solo la primera parte del archivo Python.</p>
+      </div>
+
+      <div class="card">
+<pre><code>import hashlib
+import itertools
+import string
+
+hash_objetivo = "4a00382efb5acb17c52a699364e65fc0189a4235e4fb467eb085cfa565cfeaf4"
+
+letras = string.ascii_lowercase
+subcadena = "cr7"
+longitud_total = 7
+longitud_restante = longitud_total - len(subcadena)
+
+encontrado = False
+
+for pos_subcadena in range(longitud_total - len(subcadena) + 1):
+    if encontrado:
+        break
+
+    for combo in itertools.product(letras, repeat=longitud_restante):
+        letras_libres = list(combo)
+        candidato = letras_libres[:pos_subcadena] + list(subcadena) + letras_libres[pos_subcadena:]
+        candidato_str = "".join(candidato)
+
+        h = hashlib.sha256(candidato_str.encode()).hexdigest()
+
+        if h == hash_objetivo:
+            print(f"Contraseña encontrada: {candidato_str}")
+            encontrado = True
+            break
+
+if not encontrado:
+    print("No se encontró ninguna coincidencia.")</code></pre>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section reveal" id="valoracion">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Reflexión</p>
+        <h2 class="h2">Valoración de la práctica</h2>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">⭐ Utilidad</h3>
+            <span class="chip chip-green">Alta</span>
+          </div>
+          <p class="muted">
+            La práctica sirve para entender cómo funciona un ataque básico de fuerza bruta
+            sobre hashes y cómo pequeñas pistas sobre la contraseña reducen mucho el espacio
+            de búsqueda necesario.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">🎯 Dificultad</h3>
+            <span class="chip chip-blue">Media</span>
+          </div>
+          <p class="muted">
+            La dificultad es asumible si se entiende bien el uso de bucles, combinaciones,
+            funciones hash y criterios de parada. La parte más importante es diseñar bien
+            la generación de candidatos para no probar casos innecesarios.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="section">
+    <div class="container">
+      <div class="footer">
+        <p class="muted" style="font-size:13px; margin:0;">
+          Práctica 4 · Desarrollo Web · 2025–2026 &nbsp;·&nbsp;
+          <a href="index.html" class="link">Volver al inicio</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>
