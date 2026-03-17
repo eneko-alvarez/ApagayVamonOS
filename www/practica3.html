@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Práctica 3 — XSS</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+<div class="bg" aria-hidden="true">
+  <div class="blob blob-a"></div>
+  <div class="blob blob-b"></div>
+  <div class="grid-overlay"></div>
+</div>
+
+<header class="header" id="top">
+  <div class="container">
+    <div class="header-inner">
+      <a class="logo" href="img/logo.png">
+        <div class="logo-mark"></div>
+        <span class="logo-text">ApagayVamonOS</span>
+      </a>
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="practica1.html">Práctica 1</a>
+        <a href="practica2.html">Práctica 2</a>
+        <a href="practica3.html" class="is-active">Práctica 3</a>
+      </nav>
+      <div class="header-actions">
+        <span class="chip chip-purple">XSS</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">
+            <span class="pill">Práctica 3</span>
+            <span class="dot"></span>
+            <span class="subpill">Cross-Site Scripting</span>
+          </div>
+          <h1 class="h1">XSS —<br>Cross-Site Scripting</h1>
+          <p class="lead">
+            Demostración práctica de ataques XSS. Esta página contiene
+            <strong>un vector vulnerable</strong> de forma intencionada para
+            ilustrar cómo un atacante puede inyectar y ejecutar código JavaScript
+            arbitrario en el navegador de la víctima.
+          </p>
+          <div class="hero-cta">
+            <a href="#vuln-1" class="btn btn-solid">Ver Vulnerabilidad</a>
+            <a href="#solucion" class="btn btn-ghost">Solución</a>
+          </div>
+        </div>
+        <div>
+          <div class="stats">
+            <div class="stat reveal">
+              <p class="stat-k">Tipo</p>
+              <p class="stat-v">XSS Reflejado</p>
+            </div>
+            <div class="stat reveal">
+              <p class="stat-k">Vector</p>
+              <p class="stat-v">innerHTML</p>
+            </div>
+            <div class="stat reveal">
+              <p class="stat-k">Dificultad</p>
+              <p class="stat-v">Baja</p>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:12px">
+            <p>⚠️ <strong>Aviso:</strong> Esta página es un entorno educativo de laboratorio.
+            Las vulnerabilidades son <em>deliberadas</em>. Nunca repliques esto en producción.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:0" />
+
+  <!-- VECTOR 1 -->
+  <section class="section" id="vuln-1">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Vector 1</p>
+        <h2 class="h2">Buscador vulnerable — XSS Reflejado</h2>
+        <p class="muted">
+          El valor del campo de búsqueda se inserta directamente en el DOM con
+          <code>innerHTML</code> sin ningún tipo de sanitización.
+        </p>
+        <span style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;background:rgba(220,38,38,.10);border:1px solid rgba(220,38,38,.25);color:rgba(220,38,38,.90);">⚡ Vulnerabilidad activa</span>
+      </div>
+
+      <div class="grid-2" style="gap:16px">
+        <div class="card reveal">
+          <div class="card-head">
+            <h3 class="h3">🔍 Formulario de búsqueda</h3>
+            <span class="chip chip-blue">Demo interactiva</span>
+          </div>
+          <div style="display:grid;gap:12px">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <label for="search-input" style="font-size:13px;font-weight:600;color:var(--muted)">Término de búsqueda</label>
+              <input
+                type="text"
+                id="search-input"
+                placeholder='Prueba: <img src=x onerror="alert(1)">'
+                autocomplete="off"
+                style="width:100%;padding:10px 12px;border:1px solid var(--border-strong);border-radius:10px;font-family:inherit;font-size:14px;background:rgba(255,255,255,.85);color:var(--fg);transition:border-color .15s ease,box-shadow .15s ease;"
+              />
+            </div>
+            <button class="btn btn-solid" onclick="doSearch()">Buscar</button>
+            <div>
+              <p class="eyebrow" style="margin-bottom:6px">Resultado:</p>
+              <!-- ⚠️ VULNERABLE: innerHTML sin sanitizar -->
+              <div id="search-output" style="min-height:48px;padding:12px;border-radius:10px;border:1px dashed rgba(0,0,0,.18);background:rgba(0,0,0,.02);font-size:14px;color:var(--muted)">
+                Los resultados aparecerán aquí…
+              </div>
+            </div>
+          </div>
+          <div class="card-foot">
+            <span class="chip">innerHTML directo</span>
+            <span class="chip chip-purple">Sin escape</span>
+          </div>
+        </div>
+
+        <div class="card reveal">
+          <div class="card-head">
+            <h3 class="h3">📖 ¿Cómo funciona?</h3>
+          </div>
+          <p class="muted" style="font-size:14px;margin:0 0 10px">
+            El script toma el valor del input y lo escribe directamente como HTML en el DOM:
+          </p>
+          <pre style="background:#0a0a0a;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-family:'Fira Code',monospace;font-size:13px;line-height:1.65;overflow-x:auto;margin:0">
+<span style="color:#6b7280">/* ── VECTOR 1: XSS Reflejado ── */</span>
+<span style="color:#a78bfa">function</span> <span style="color:#67e8f9">doSearch</span>() {
+  document.<span style="color:#67e8f9">getElementById</span>(<span style="color:#86efac">'search-output'</span>).innerHTML
+    = document.<span style="color:#67e8f9">getElementById</span>(<span style="color:#86efac">'search-input'</span>).value;
+}</pre>
+          <p class="muted" style="font-size:13px;margin:10px 0 4px">Payload de ejemplo:</p>
+          <pre style="background:#0a0a0a;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-family:'Fira Code',monospace;font-size:12px;line-height:1.65;overflow-x:auto;margin:0">&lt;img src=x onerror="alert('XSS!')"&gt;</pre>
+          <ul class="ticks">
+            <li>El navegador parsea el HTML inyectado</li>
+            <li>La imagen falla → dispara <code>onerror</code></li>
+            <li>El <code>alert()</code> se ejecuta en el contexto de la página</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:0" />
+
+  <!-- SOLUCIÓN -->
+  <section class="section" id="solucion">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Defensa</p>
+        <h2 class="h2">✅ Solución — Cómo arreglarlo</h2>
+        <p class="muted">
+          Dos enfoques complementarios: <strong>escapar la salida</strong> y
+          <strong>usar APIs seguras del DOM</strong>.
+        </p>
+        <span style="display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-size:12px;font-weight:700;background:var(--green-weak);border:1px solid rgba(22,163,74,.25);color:var(--green);">🛡️ Medidas de mitigación</span>
+      </div>
+
+      <div style="background:linear-gradient(180deg,rgba(22,163,74,.04),rgba(22,163,74,.01));border:1px solid rgba(22,163,74,.18);border-radius:var(--radius);padding:20px;margin-bottom:16px" class="reveal">
+        <h3 class="h3" style="color:var(--green);margin-bottom:10px">Fix 1 — Reemplazar <code>innerHTML</code> por <code>textContent</code></h3>
+        <div class="grid-2" style="gap:12px">
+          <div>
+            <p class="eyebrow" style="color:rgba(220,38,38,.80);margin-bottom:4px">❌ Vulnerable</p>
+            <pre style="background:#0a0a0a;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-family:'Fira Code',monospace;font-size:13px;line-height:1.65;overflow-x:auto;margin:0">
+<span style="color:#a78bfa">function</span> <span style="color:#67e8f9">doSearch</span>() {
+  output.innerHTML
+    = input.value; <span style="color:#6b7280">// 💥 XSS</span>
+}</pre>
+          </div>
+          <div>
+            <p class="eyebrow" style="color:var(--green);margin-bottom:4px">✅ Seguro</p>
+            <pre style="background:#0a0a0a;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-family:'Fira Code',monospace;font-size:13px;line-height:1.65;overflow-x:auto;margin:0">
+<span style="color:#a78bfa">function</span> <span style="color:#67e8f9">doSearch</span>() {
+  output.textContent
+    = input.value; <span style="color:#6b7280">// ✅ seguro</span>
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(180deg,rgba(22,163,74,.04),rgba(22,163,74,.01));border:1px solid rgba(22,163,74,.18);border-radius:var(--radius);padding:20px;margin-bottom:16px" class="reveal">
+        <h3 class="h3" style="color:var(--green);margin-bottom:10px">Fix 2 — Función <code>escapeHTML()</code></h3>
+        <pre style="background:#0a0a0a;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-family:'Fira Code',monospace;font-size:13px;line-height:1.65;overflow-x:auto;margin:0">
+<span style="color:#a78bfa">function</span> <span style="color:#67e8f9">escapeHTML</span>(s) {
+  <span style="color:#a78bfa">return</span> s.<span style="color:#67e8f9">replace</span>(<span style="color:#86efac">/&/g</span>,  <span style="color:#86efac">'&amp;amp;'</span>)
+           .<span style="color:#67e8f9">replace</span>(<span style="color:#86efac">/</span>&lt;<span style="color:#86efac">/g</span>,  <span style="color:#86efac">'&amp;lt;'</span>)
+           .<span style="color:#67e8f9">replace</span>(<span style="color:#86efac">/>/g</span>,  <span style="color:#86efac">'&amp;gt;'</span>)
+           .<span style="color:#67e8f9">replace</span>(<span style="color:#86efac">/"/g</span>,  <span style="color:#86efac">'&amp;quot;'</span>)
+           .<span style="color:#67e8f9">replace</span>(<span style="color:#86efac">/'/g</span>,  <span style="color:#86efac">'&amp;#039;'</span>);
+}
+<span style="color:#a78bfa">function</span> <span style="color:#67e8f9">doSearch</span>() {
+  output.innerHTML = <span style="color:#67e8f9">escapeHTML</span>(input.value);
+}</pre>
+      </div>
+
+      <div style="background:linear-gradient(180deg,rgba(22,163,74,.04),rgba(22,163,74,.01));border:1px solid rgba(22,163,74,.18);border-radius:var(--radius);padding:20px;margin-bottom:16px" class="reveal">
+        <h3 class="h3" style="color:var(--green);margin-bottom:10px">Fix 3 — Content Security Policy (CSP)</h3>
+        <pre style="background:#0a0a0a;color:#e5e7eb;border-radius:10px;padding:14px 16px;font-family:'Fira Code',monospace;font-size:13px;line-height:1.65;overflow-x:auto;margin:0">
+<span style="color:#6b7280"># Cabecera HTTP (Apache / Nginx / Express)</span>
+Content-Security-Policy:
+  default-src <span style="color:#86efac">'self'</span>;
+  script-src  <span style="color:#86efac">'self'</span>;        <span style="color:#6b7280">/* sin 'unsafe-inline' */</span>
+  img-src     <span style="color:#86efac">'self'</span> https:; <span style="color:#6b7280">/* solo imágenes HTTPS  */</span>
+  object-src  <span style="color:#86efac">'none'</span>;</pre>
+        <ul class="ticks">
+          <li><strong>Sin <code>'unsafe-inline'</code></strong>: scripts inline inyectados no se ejecutan</li>
+          <li><strong><code>img-src 'self' https:</code></strong>: bloquea <code>src=x</code> con esquema inválido</li>
+          <li><strong><code>object-src 'none'</code></strong>: elimina el vector de objetos Flash/plugin</li>
+        </ul>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-head">
+          <h3 class="h3">📋 Checklist de mitigación</h3>
+        </div>
+        <div class="checklist">
+          <label class="check"><input type="checkbox" /><span>Usar <code>textContent</code> en lugar de <code>innerHTML</code> siempre que no se necesite HTML</span></label>
+          <label class="check"><input type="checkbox" /><span>Escapar caracteres especiales (<code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>"</code>, <code>'</code>) antes de insertar en el DOM</span></label>
+          <label class="check"><input type="checkbox" /><span>Implementar una CSP estricta en las cabeceras HTTP del servidor</span></label>
+          <label class="check"><input type="checkbox" /><span>Validar y filtrar en servidor cualquier dato externo antes de servirlo</span></label>
+          <label class="check"><input type="checkbox" /><span>Usar DOMPurify cuando sea imprescindible renderizar HTML de fuentes externas</span></label>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer" style="padding-bottom:32px">
+  <div class="container">
+    <p class="muted" style="font-size:13px;margin:0">
+      Práctica 3 · Cross-Site Scripting (XSS) · Entorno educativo de laboratorio
+    </p>
+  </div>
+</footer>
+
+<script>
+  /* ── VECTOR 1: XSS Reflejado ── */
+  function doSearch() {
+    document.getElementById('search-output').innerHTML = document.getElementById('search-input').value;
+  }
+
+  document.getElementById('search-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') doSearch();
+  });
+
+  /* ── Animaciones reveal ── */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('top').classList.toggle('is-scrolled', window.scrollY > 10);
+  });
+</script>
+
+</body>
+</html>
