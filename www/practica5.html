@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apaga y VámonOS/Práctica 5</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+
+<body>
+
+  <!-- Fondo decorativo -->
+  <div class="bg">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container">
+      <div class="header-inner">
+
+        <a href="index.html" class="logo">
+          <img src="img/logo.png" alt="Apaga y VámonOS" class="logo-img">
+          <span class="logo-text">Apaga y VámonOS · Prácticas</span>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Inicio</a>
+          <a href="practica5.html" class="is-active">Práctica 5</a>
+          <details>
+            <summary>Más prácticas</summary>
+            <div class="dropdown-panel">
+              <a href="practica1.html">Práctica 1</a>
+              <a href="practica2.html">Práctica 2</a>
+              <a href="practica3.html">Práctica 3</a>
+              <a href="practica4.html">Práctica 4</a>
+            </div>
+          </details>
+        </nav>
+
+        <div class="header-actions">
+          <a href="index.html" class="btn btn-ghost btn-small">Volver</a>
+          <a href="#entrega" class="btn btn-solid btn-small">Ver entrega</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <div>
+          <div class="kicker">
+            <span class="pill">Práctica 5</span>
+            <span class="dot"></span>
+            <span class="subpill">Web Scraping · Python</span>
+          </div>
+
+          <h1 class="h1">Extracción y análisis de información web</h1>
+
+          <p class="lead">
+            En esta práctica desarrollamos un script en Python para analizar páginas web,
+            extraer información relevante y organizar los resultados de forma útil. Además,
+            utilizamos el contenido obtenido para generar un pequeño análisis automático.
+          </p>
+
+          <div class="hero-cta">
+            <a href="#enunciado" class="btn btn-solid">Ver enunciado</a>
+            <a href="#preguntas" class="btn btn-ghost">Ver preguntas</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <p class="stat-k">Dificultad</p>
+              <p class="stat-v">Media</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Tecnologías</p>
+              <p class="stat-v">Python · Requests · BeautifulSoup</p>
+            </div>
+            <div class="stat">
+              <p class="stat-k">Estado</p>
+              <p class="stat-v">Entregada</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <p class="eyebrow">Resumen</p>
+            <span class="chip chip-green">Completada</span>
+          </div>
+
+          <ul class="list">
+            <li><span class="bullet"></span><span><strong>Objetivo:</strong> scrapear información útil de páginas web.</span></li>
+            <li><span class="bullet"></span><span><strong>Extracción:</strong> texto, enlaces, imágenes, contactos y archivos.</span></li>
+            <li><span class="bullet"></span><span><strong>Extra:</strong> análisis automático del contenido obtenido.</span></li>
+            <li><span class="bullet"></span><span><strong>Resultado:</strong> script funcional y salida documentada.</span></li>
+          </ul>
+
+          <div class="card-foot">
+            <span class="chip chip-blue">Scraping</span>
+            <span class="chip chip-purple">OSINT</span>
+            <span class="chip chip-green">Automatización</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Enunciado -->
+  <section class="section section-soft" id="enunciado">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Enunciado</p>
+        <h2 class="h2">Objetivo de la práctica</h2>
+        <p class="muted">
+          El objetivo es crear un programa capaz de recorrer una web y extraer información útil
+          de forma automatizada. La idea no es solo acceder al HTML, sino procesarlo y guardar
+          resultados que puedan servir para análisis posterior.
+        </p>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte técnica</p>
+            <span class="chip chip-blue">Scraping</span>
+          </div>
+          <h3 class="h3">Qué había que implementar</h3>
+          <ul class="ticks">
+            <li>Extracción de texto de forma estructurada</li>
+            <li>Obtención de imágenes</li>
+            <li>Recogida de hipervínculos</li>
+            <li>Detección de detalles de contacto</li>
+            <li>Búsqueda de archivos como PDFs</li>
+          </ul>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Parte analítica</p>
+            <span class="chip chip-purple">Reflexión</span>
+          </div>
+          <h3 class="h3">Qué había que valorar</h3>
+          <ul class="ticks">
+            <li>Usos reales de este tipo de programas</li>
+            <li>Aplicación del scraping en OSINT</li>
+            <li>Utilidad en redes sociales</li>
+            <li>Problemas y limitaciones encontradas</li>
+            <li>Dificultad general de la práctica</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Entrega -->
+  <section class="section" id="entrega">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Entrega</p>
+        <h2 class="h2">Desarrollo y resultados</h2>
+        <p class="muted">
+          En nuestra resolución se desarrolló un script que accede a Yahoo Finance ES para localizar
+          la noticia principal, extraer su contenido y generar después un pequeño análisis automático
+          a partir del texto recuperado.
+        </p>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado 1</p>
+          </div>
+          <h3 class="h3">Scraping de la noticia principal</h3>
+          <p class="muted">
+            El script realiza una petición HTTP a la página objetivo y analiza el HTML con
+            <strong>BeautifulSoup</strong> para localizar la noticia principal y recuperar su enlace
+            y parte del texto.
+          </p>
+
+          <pre class="mini">import requests
+from bs4 import BeautifulSoup
+
+url = "https://es.finance.yahoo.com/"
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
+
+titulos = soup.find_all("h1")
+parrafos = soup.find_all("p")</pre>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">Apartado 2</p>
+          </div>
+          <h3 class="h3">Análisis automático</h3>
+          <p class="muted">
+            Una vez obtenido el contenido, se utiliza un modelo de lenguaje para generar un análisis
+            breve del texto encontrado. Así, la práctica combina extracción de información y tratamiento automático.
+          </p>
+
+          <pre class="mini">from openai import OpenAI
+
+client = OpenAI(api_key="TU_API_KEY")
+
+response = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role": "user", "content": texto_noticia}
+    ]
+)</pre>
+        </div>
+
+      </div>
+
+      <div class="card card-hover">
+        <div class="card-head">
+          <p class="eyebrow">Apartado b</p>
+          <span class="chip chip-green">Información extraída</span>
+        </div>
+        <h3 class="h3">Web Scraping</h3>
+
+        <p class="muted">
+          Además del caso concreto de Yahoo Finance ES, planteamos la extracción de los distintos
+          tipos de información solicitados en la práctica. El objetivo era cubrir no solo texto,
+          sino también recursos y datos útiles para análisis posterior.
+        </p>
+
+        <div class="grid-2">
+
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">i. Texto</p>
+            </div>
+            <p class="muted">
+              Se extrae texto visible de forma estructurada, especialmente títulos, cabeceras y párrafos.
+              Esto permite separar la información principal del resto del HTML.
+            </p>
+            <pre class="mini">titulos = [h.get_text(strip=True) for h in soup.find_all(["h1", "h2", "h3"])]
+parrafos = [p.get_text(strip=True) for p in soup.find_all("p")]</pre>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">ii. Imágenes</p>
+            </div>
+            <p class="muted">
+              Las imágenes se pueden localizar mediante las etiquetas <code>img</code> y guardar sus rutas
+              para descargarlas después en una carpeta, por ejemplo <strong>imagenes/</strong>.
+            </p>
+            <pre class="mini">imagenes = [img["src"] for img in soup.find_all("img", src=True)]</pre>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">iii. Hipervínculos</p>
+            </div>
+            <p class="muted">
+              Los enlaces encontrados se pueden guardar en un archivo de texto, lo que resulta útil
+              para revisar la estructura de la web o reutilizar esas URLs más adelante.
+            </p>
+            <pre class="mini">links = [a["href"] for a in soup.find_all("a", href=True)]
+
+with open("links.txt", "w", encoding="utf-8") as f:
+    for link in links:
+        f.write(link + "\n")</pre>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">iv. Contactos</p>
+            </div>
+            <p class="muted">
+              También se contempla la búsqueda de detalles de contacto, especialmente direcciones
+              de correo electrónico, que pueden ser relevantes en tareas de OSINT.
+            </p>
+            <pre class="mini">import re
+
+emails = re.findall(
+    r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}",
+    html
+)</pre>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">v. Archivos</p>
+            </div>
+            <p class="muted">
+              Se puede detectar si una web enlaza a documentos como PDFs u otros archivos y recoger
+              esas URLs para su posible descarga.
+            </p>
+            <pre class="mini">archivos = [
+    a["href"] for a in soup.find_all("a", href=True)
+    if a["href"].lower().endswith((".pdf", ".docx", ".xlsx"))
+]</pre>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <p class="eyebrow">Resumen del apartado</p>
+            </div>
+            <p class="muted">
+              En conjunto, el scraping no se limita a copiar texto, sino que permite extraer de forma
+              masiva diferentes tipos de información útiles para análisis, organización y monitorización.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card card-hover">
+        <div class="card-head">
+          <p class="eyebrow">Ejecución</p>
+          <span class="chip chip-purple">Captura</span>
+        </div>
+
+        <h3 class="h3">Ejemplo de ejecución del script</h3>
+        <p class="muted">
+          En la siguiente imagen se puede ver la ejecución del script y el resultado obtenido con
+          la noticia principal y el análisis generado.
+        </p>
+
+        <img src="img/captura_practica5.png" alt="Captura de la ejecución del script" style="width:100%; border-radius:10px; margin-top:10px;">
+
+        <pre class="mini">Noticia principal: https://es.finance.yahoo.com/noticias/...
+Texto (preview): Tu privacidad es importante para nosotros...
+Análisis: impacto en inversores y tratamiento de datos...</pre>
+      </div>
+
+      <div class="card card-hover">
+        <div class="card-head">
+          <p class="eyebrow">Resultado final</p>
+        </div>
+        <h3 class="h3">Qué conseguimos</h3>
+        <ul class="ticks">
+          <li>Extraer contenido web automáticamente</li>
+          <li>Recoger enlaces e información relevante</li>
+          <li>Plantear la obtención de imágenes, contactos y archivos</li>
+          <li>Generar una salida útil para análisis posterior</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Preguntas -->
+  <section class="section section-soft" id="preguntas">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Respuestas a la parte teórica</p>
+        <h2 class="h2">Preguntas</h2>
+        <p class="muted">
+          En este apartado respondemos a las preguntas planteadas al final de la práctica.
+        </p>
+      </div>
+
+      <div class="grid-2">
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">2.a</p>
+            <span class="chip chip-blue">Uso real</span>
+          </div>
+          <h3 class="h3">¿Qué se puede conseguir con este tipo de programas?</h3>
+          <p class="muted">
+            Con programas de scraping se puede recoger información pública de internet de manera rápida
+            y automática. Esto permite ahorrar mucho tiempo cuando hay que revisar muchas páginas,
+            comparar contenidos, monitorizar cambios o generar bases de datos a partir de información visible.
+          </p>
+          <p class="muted">
+            Un uso real que se nos ocurre es la <strong>monitorización automática de noticias económicas</strong>
+            para detectar titulares relevantes, guardarlos y generar resúmenes o alertas sin tener que revisar
+            manualmente cada medio.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">2.b</p>
+            <span class="chip chip-purple">OSINT</span>
+          </div>
+          <h3 class="h3">¿Qué información puedo scrapear de manera masiva?</h3>
+          <p class="muted">
+            En un contexto de OSINT, se puede scrapear información pública como nombres, correos electrónicos,
+            teléfonos publicados, enlaces a perfiles, noticias relacionadas, documentos enlazados, imágenes,
+            publicaciones web, referencias a empleados, ubicaciones y datos corporativos visibles.
+          </p>
+          <p class="muted">
+            En el caso de una empresa, esto puede servir para construir una visión general de su presencia online.
+            En el caso de una persona, podría ayudar a localizar perfiles públicos, menciones, webs personales o
+            direcciones de contacto expuestas.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">2.c</p>
+            <span class="chip chip-green">Redes sociales</span>
+          </div>
+          <h3 class="h3">¿Es útil en redes sociales? ¿Qué problemas se pueden encontrar?</h3>
+          <p class="muted">
+            Sí, puede ser útil en redes sociales para recopilar publicaciones públicas, hashtags, perfiles,
+            enlaces, fechas o patrones de actividad. Esto puede servir para análisis de tendencias,
+            reputación, seguimiento de campañas o tareas de OSINT.
+          </p>
+          <p class="muted">
+            Los principales problemas son los <strong>límites de acceso</strong>, los sistemas anti-bot, el uso
+            de contenido cargado dinámicamente con JavaScript, cambios frecuentes en la estructura de la página
+            y, además, cuestiones legales y de privacidad si se intenta recopilar información de forma masiva
+            sin respetar las condiciones de uso.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <p class="eyebrow">3.a</p>
+            <span class="chip">Valoración</span>
+          </div>
+          <h3 class="h3">Valoración de la dificultad de la práctica</h3>
+          <p class="muted">
+            La práctica nos ha parecido de <strong>dificultad media</strong>. La idea general se entiende rápido,
+            pero lo más delicado es adaptar el script a la estructura real de cada web, limpiar bien los datos
+            y comprobar que los selectores usados siguen funcionando.
+          </p>
+          <p class="muted">
+            También hemos visto que, aunque el scraping básico es sencillo, cuando se quiere hacer algo más robusto
+            aparecen problemas como rutas relativas, contenido dinámico o páginas que limitan el acceso. Por eso,
+            aunque la base no es difícil, hacer un scraper sólido requiere bastante más cuidado.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusión -->
+  <section class="section" id="valoracion">
+    <div class="container">
+
+      <div class="section-head">
+        <p class="eyebrow">Conclusión</p>
+        <h2 class="h2">Valoración final</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">Utilidad real</h3>
+            <span class="chip chip-green">Alta</span>
+          </div>
+          <p class="muted">
+            Esta práctica tiene utilidad real porque muestra cómo automatizar la recogida de información pública
+            en internet. Es especialmente interesante en tareas de monitorización, análisis de datos y OSINT.
+          </p>
+        </div>
+
+        <div class="card card-hover">
+          <div class="card-head">
+            <h3 class="h3">Aprendizaje</h3>
+            <span class="chip chip-blue">Positivo</span>
+          </div>
+          <p class="muted">
+            Nos ha servido para entender mejor cómo se estructura una web por dentro y cómo se puede extraer
+            información concreta de forma automática. También hemos visto sus limitaciones y la importancia
+            de adaptar el código a cada caso real.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          👥 <strong>Conclusión general:</strong> el web scraping es una técnica muy útil para automatizar la
+          recopilación de información, pero depende mucho de la estructura de la web y de las restricciones
+          de acceso. Aun así, bien planteado, puede aportar mucho valor en análisis y OSINT.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="section">
+    <div class="container">
+      <div class="footer">
+        <p class="muted" style="font-size:13px; margin:0;">
+          Práctica 5 · Desarrollo Web · 2025–2026 &nbsp;·&nbsp;
+          <a href="index.html" class="link">Volver al inicio</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('is-scrolled', window.scrollY > 10);
+    });
+  </script>
+
+</body>
+</html>
