@@ -708,3 +708,12 @@ strong{ font-weight: 700; }
   width: auto;
   display: block;
 }
+
+.img-practica {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
+}
